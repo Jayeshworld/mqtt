@@ -21,7 +21,7 @@ Route::prefix('auth')->name('auth.')->group(function () {
 });
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
-        return view('dashboard');
+        return view('welcome');
     })->name('dashboard');
 
     Route::resource('users', UserController::class);
