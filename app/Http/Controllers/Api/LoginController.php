@@ -23,7 +23,7 @@ class LoginController extends Controller
                 'message' => 'Validation errors',
 
                 'errors' => $validator->errors()
-            ], 422);
+            ], 400);
         }
 
 
