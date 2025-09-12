@@ -12,8 +12,13 @@ class LoginController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
+
         if (auth()->attempt($credentials)) {
             $user = auth()->user();
+            if($request->has('fcm_token')){
+                $user->fcm_token = $request->fcm_token;
+                $user->save();
+            }
             $user->load('elevators');
             $token = $user->createToken('api-token')->plainTextToken;
 
