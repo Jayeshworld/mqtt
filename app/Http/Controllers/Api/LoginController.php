@@ -14,6 +14,7 @@ class LoginController extends Controller
 
         if (auth()->attempt($credentials)) {
             $user = auth()->user();
+            $user->load('elevators');
             $token = $user->createToken('api-token')->plainTextToken;
 
             return response()->json([
@@ -33,6 +34,6 @@ class LoginController extends Controller
         return response()->json(['message' => 'Logged out successfully']);
     }
 
-    
+
     
 }
