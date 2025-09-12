@@ -20,6 +20,9 @@ class ElevatorController extends Controller
     {
         Log::info('Notification received', $request->all());
         // Logic to handle notification
-        return response()->json(['message' => 'Notification received']);
+        return response()->json([
+            'message' => 'Notification received',
+            'request' => $request->all()
+        ]);
     }
 }
