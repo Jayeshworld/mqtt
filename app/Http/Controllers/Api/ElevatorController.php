@@ -14,4 +14,10 @@ class ElevatorController extends Controller
 
         return response()->json(['maac_id' => $elevators->pluck('maac_id')]);
     }
+
+    public function notification(Request $request)
+    {
+        // Logic to handle notification
+        return response()->json(['message' => 'Notification received']);
+    }
 }

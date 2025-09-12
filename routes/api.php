@@ -12,5 +12,6 @@ Route::get('/user', function (Request $request) {
 Route::post('login', [LoginController::class, 'login']);
 
 Route::get('elevators/maacid', [ElevatorController::class, 'maacid']);
+Route::post('elevators/notification', [ElevatorController::class, 'notification']);
 
 
