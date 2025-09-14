@@ -50,6 +50,20 @@ class LoginController extends Controller
         return response()->json(['message' => 'Invalid credentials'], 400);
     }
 
+
+
+    public function getUser(Request $request)
+    {
+        $user = $request->user();
+        $user->load('elevators');
+
+        return response()->json([
+            'status' => true,
+            'message' => 'User retrieved successfully',
+            'user' => $user,
+        ]);
+    }
+
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
