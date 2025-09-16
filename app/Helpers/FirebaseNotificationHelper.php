@@ -18,7 +18,6 @@ class FirebaseNotificationHelper
      */
     public static function sendNotification(Notifications $notification): void
     {
-        Log::info("📬 Sending notification immediately: {$notification->title} for users: {$notification->user_ids}");
         self::processNotification($notification); // No queueing, immediate send
     }
 
@@ -29,7 +28,6 @@ class FirebaseNotificationHelper
     public static function processNotification(Notifications $notification): void
     {
         $accessToken = self::getAccessToken();
-        Log::info("📬 Processing notification: {$notification->title} for users: {$notification->user_ids}");
         if (!$accessToken) {
             Log::error("❌ Unable to retrieve Firebase access token.");
             return;
