@@ -38,7 +38,12 @@ class ElevatorController extends Controller
 
         $userId = Elevator::where('maac_id', $macid)->pluck('user_id');
         Log::info('User ID found', ['user_id' => $userId]);
-        $user = $userId ? User::find($userId) : null; 
+
+        if ($userId->isEmpty()) {
+            Log::warning('No user found for the given maac_id', ['maac_id' => $macid]);
+        }
+
+        $user = $userId ? User::whereIn('id', $userId)->first() : null;
 
         Log::info('User found', ['user' => $user]);
 
