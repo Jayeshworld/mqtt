@@ -49,16 +49,16 @@ class ElevatorController extends Controller
 
         $notification = 'Elevator ' . $macid . ' ' . $key . ' is ' . $value;
 
-        $notification= Notifications::create([
-            'user_ids' => $user ? [$user->id] : [],
+        $notification = Notifications::create([
+            'user_ids' =>  [$userId],
             'title' => 'Elevator Status Changed',
             'body' => $notification,
             'type' => 'user',
         ]);
-        
+
         FirebaseNotificationHelper::sendNotification($notification);
 
-        
+
 
         // Logic to handle notification
         return response()->json([
