@@ -36,7 +36,7 @@ class ElevatorController extends Controller
             'value' => $value,
         ]);
 
-        $userId = Elevator::where('maac_id', $macid)->value('user_id');
+        $userId = Elevator::where('maac_id', $macid)->pluck('user_id');
         Log::info('User ID found', ['user_id' => $userId]);
         $user = $userId ? User::find($userId) : null; 
 
