@@ -40,6 +40,8 @@ class ElevatorController extends Controller
         Log::info('User ID found', ['user_id' => $userId]);
         $user = $userId ? User::find($userId) : null; 
 
+        Log::info('User found', ['user' => $user]);
+
         $notification = 'Elevator ' . $macid . ' ' . $key . ' is ' . $value;
 
         $notification= Notifications::create([
