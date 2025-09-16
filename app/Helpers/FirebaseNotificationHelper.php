@@ -11,7 +11,7 @@ use App\Models\Notifications;
 
 class FirebaseNotificationHelper
 {
-    private static $projectId = 'rtech-connect'; // Update with your Firebase project ID
+    private static $projectId = 'rtech-elevators'; // Update with your Firebase project ID
 
     /**
      * Public entry point: queues notification sending.
