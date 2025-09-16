@@ -48,6 +48,7 @@ class ElevatorController extends Controller
             'body' => $notification,
             'type' => 'user',
         ]);
+        
         FirebaseNotificationHelper::sendNotification($notification);
 
         
