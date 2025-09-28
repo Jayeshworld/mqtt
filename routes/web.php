@@ -13,7 +13,9 @@ Route::get('/migrate', function () {
     return "Migrated";
 });
 
-
+Route::get('/privacy', function () {
+    return view('privacy');
+});
 Route::prefix('auth')->name('auth.')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('login.post');
