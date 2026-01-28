@@ -20,7 +20,19 @@
              </a>
          </li>
 
+            <li class="nav-item">
+                <a class="nav-link {{ request()->is('acs*') ? 'active' : '' }}" href="{{ route('acs.index') }}">
+                    <i class="fas fa-door-closed"></i>
+                    A C
+                </a>
+            </li>
 
+            <li class="nav-item">
+                <a class="nav-link {{ request()->is('displays*') ? 'active' : '' }}" href="{{ route('displays.index') }}">
+                    <i class="fas fa-tv"></i>
+                    Displays
+                </a>
+            </li>
         
      </ul>
  </nav>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Web\AcController;
+use App\Http\Controllers\Web\DisplayController;
 use App\Http\Controllers\Web\ElevatorController;
 use App\Http\Controllers\Web\LoginController;
 use App\Http\Controllers\Web\UserController;
@@ -28,4 +30,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('users', UserController::class);
     Route::resource('elevators', ElevatorController::class);
+     Route::resource('acs', AcController::class);
+
+    // Display Routes
+    Route::resource('displays', DisplayController::class);
 });
