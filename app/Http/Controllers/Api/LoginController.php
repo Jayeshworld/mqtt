@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
@@ -11,6 +12,9 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        Log::info('Login attempt', ['email' => $request->email]);
+        // Log all request data
+        Log::debug('Request data', $request->all());
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required|string|min:6',
@@ -46,6 +50,7 @@ class LoginController extends Controller
                 'user' => $user,
             ]);
         }
+        Log::warning('Failed login attempt', ['email' => $request->email]);
 
         return response()->json(['message' => 'Invalid credentials'], 400);
     }
