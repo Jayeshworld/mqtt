@@ -69,10 +69,37 @@ class LoginController extends Controller
         ]);
     }
 
+    public function getAc(Request $request)
+    {
+        $user = $request->user();
+        $user->load('ac');
+
+        return response()->json([
+            'status' => true,
+            'message' => 'User retrieved successfully',
+            'user' => $user,
+        ]);
+    }public function getDisplay(Request $request)
+    {
+        $user = $request->user();
+        $user->load('display');
+
+        return response()->json([
+            'status' => true,
+            'message' => 'User retrieved successfully',
+            'user' => $user,
+        ]);
+    }
+
+
+
+
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
 
         return response()->json(['message' => 'Logged out successfully']);
     }
+
+
 }

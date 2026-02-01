@@ -12,6 +12,6 @@ Route::post('elevators/notification', [ElevatorController::class, 'notification'
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('user', [LoginController::class, 'getUser']);
+    Route::get('ac', [LoginController::class, 'getAc']);
+    Route::get('display', [LoginController::class, 'getDisplay']);
 });
-
-
