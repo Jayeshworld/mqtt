@@ -76,7 +76,7 @@ class LoginController extends Controller
 
         return response()->json([
             'status' => true,
-            'message' => 'User retrieved successfully',
+            'message' => 'Ac retrieved successfully',
             'user' => $user,
         ]);
     }public function getDisplay(Request $request)
@@ -86,7 +86,7 @@ class LoginController extends Controller
 
         return response()->json([
             'status' => true,
-            'message' => 'User retrieved successfully',
+            'message' => 'Display retrieved successfully',
             'user' => $user,
         ]);
     }
