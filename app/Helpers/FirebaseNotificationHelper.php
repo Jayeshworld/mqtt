@@ -36,8 +36,6 @@ class FirebaseNotificationHelper
         Log::info('Type of notification: ' . $notification->type);
 
         match ($notification->type) {
-            'all' => self::sendToAll($notification, $accessToken),
-            'user', 'partner' => self::sendToTopic($notification->type, $notification, $accessToken),
             default => self::sendToSpecificUsers($notification, $accessToken),
         };
     }
