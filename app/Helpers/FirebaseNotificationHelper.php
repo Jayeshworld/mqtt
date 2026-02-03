@@ -158,6 +158,9 @@ class FirebaseNotificationHelper
         ];
 
         try {
+            Log::info("📨 Sending notification to token: {$token}");
+            // Log all payload data for debugging
+            Log::info("Payload: " . json_encode($payload));
             $response = Http::withToken($accessToken)
                 ->post($url, $payload);
             Log::info("✅ FCM token response: " . $response->body());
