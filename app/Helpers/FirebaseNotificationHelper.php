@@ -82,7 +82,8 @@ class FirebaseNotificationHelper
 
     private static function sendToSpecificUsers(Notifications $notification, string $accessToken): void
     {
-        $userIds = json_decode($notification->user_ids, true);
+        // $userIds = json_decode($notification->user_ids , true);
+        $userIds = is_array($notification->user_ids) ? $notification->user_ids : [];
         if (empty($userIds)) {
             Log::warning("⚠️ No user IDs provided for notification.");
             return;
